@@ -16,3 +16,11 @@ TEST_F(BowlingCalculatorTest, EmptyGame)
     }
     EXPECT_EQ(0, calculator.totalScore());
 }
+
+TEST_F(BowlingCalculatorTest, AllOnes)
+{
+    for (int i = 0; i < 20; i++) {
+        calculator.roll(1);
+    }
+    EXPECT_EQ(20, calculator.totalScore());
+}
