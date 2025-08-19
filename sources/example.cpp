@@ -4,10 +4,12 @@
 #include "example.h"
 
 
-std::string dummy_function()
-{
-    std::string tmp_string = "Hello from ";
-    tmp_string.append(__FUNCTION__);
+BowlingCalculator::BowlingCalculator() : score(0) {}
 
-    return tmp_string;
+void BowlingCalculator::roll(int pins) {
+    score += pins;
+}
+
+int BowlingCalculator::totalScore() const {
+    return score;
 }
