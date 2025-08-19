@@ -1,4 +1,9 @@
+class BowlingCalculator {
+public:
+    BowlingCalculator();
+    void roll(int pins);
+    int totalScore() const;
 
-#include <string>
-
-std::string dummy_function();
+private:
+    int score;
+};
