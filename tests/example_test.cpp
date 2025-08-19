@@ -4,9 +4,15 @@
 #include "example.h"
 
 
-// TEST(TEST_SUITE, TEST_CASE)
+class BowlingCalculatorTest : public ::testing::Test {
+protected:
+    BowlingCalculator calculator;
+};
 
-TEST(CPPTemplate, DummyTest)
+TEST_F(BowlingCalculatorTest, EmptyGame)
 {
-    ASSERT_EQ(dummy_function(), "Hello from dummy_function");
+    for (int i = 0; i < 20; i++) {
+        calculator.roll(0);
+    }
+    EXPECT_EQ(0, calculator.totalScore());
 }
