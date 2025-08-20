@@ -5,5 +5,6 @@ public:
     int totalScore() const;
 
 private:
-    int score;
+    int rolls[21];
+    int currentRoll;
 };
