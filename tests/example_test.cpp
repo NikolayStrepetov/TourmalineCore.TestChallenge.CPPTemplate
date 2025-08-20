@@ -24,3 +24,14 @@ TEST_F(BowlingCalculatorTest, AllOnes)
     }
     EXPECT_EQ(20, calculator.totalScore());
 }
+
+TEST_F(BowlingCalculatorTest, OneSpare)
+{
+    calculator.roll(5);
+    calculator.roll(5);
+    calculator.roll(3);
+    for (int i = 0; i < 17; i++) {
+        calculator.roll(0);
+    }
+    EXPECT_EQ(16, calculator.totalScore());
+}
