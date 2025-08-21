@@ -10,8 +10,8 @@ private:
     int rolls[21];
     int currentRoll;
 
-    bool isStrike(int frameIndex) const;
-    bool isSpare(int frameIndex) const;
-    int strikeBonus(int frameIndex) const;
-    int spareBonus(int frameIndex) const;
+    bool isStrike(int rollIndex) const;
+    bool isSpare(int rollIndex) const;
+    int strikeBonus(int rollIndex) const;
+    int spareBonus(int rollIndex) const;
 };
