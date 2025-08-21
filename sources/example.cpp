@@ -34,3 +34,20 @@ int BowlingCalculator::totalScore() const {
 
     return score;
 }
+
+int BowlingCalculator::getCurrentFrame() const {
+    int frame = 0;
+    int rollIndex = 0;
+
+    while (rollIndex < currentRoll && frame < 10) {
+        if (rolls[rollIndex] == 10) {
+            rollIndex ++;
+        }
+        else {
+            rollIndex += 2;
+        }
+        frame ++;
+    }
+
+    return frame;
+}
