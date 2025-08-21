@@ -82,6 +82,15 @@ TEST_F(BowlingCalculatorTest, FrameScores)
     EXPECT_EQ(7, calculator.getFrameScore(2));
 }
 
+TEST_F(BowlingCalculatorTest, RollsInFrame)
+{
+    calculator.roll(10);
+    calculator.roll(7);
+    calculator.roll(3);
+    EXPECT_EQ(std::vector<int>{10}, calculator.getRollsInFrame(1));
+    EXPECT_EQ(std::vector<int>{7, 3}, calculator.getRollsInFrame(2));
+}
+
 TEST_F(BowlingCalculatorTest, ExampleTest)
 {
     calculator.roll(10);
