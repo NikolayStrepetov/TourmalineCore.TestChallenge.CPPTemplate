@@ -52,6 +52,38 @@ int BowlingCalculator::getCurrentFrame() const {
     return frame;
 }
 
+int BowlingCalculator::getFrameScore(int frame) const {
+    if (frame < 1 || frame > 10) {
+        throw std::invalid_argument("Frame must be between 1 and 10");
+    }
+
+    int frameIndex = 0;
+    int rollIndex = 0;
+    int frameScore = 0;
+
+    while (frameIndex < frame -1) {
+        if (isStrike(rollIndex)) {
+            rollIndex ++;
+        }
+        else {
+            rollIndex += 2;
+        }
+        frameIndex ++;
+    }
+    
+    if (isStrike(rollIndex)) {
+        frameScore = 10 + strikeBonus(rollIndex);
+    }
+    else if (isSpare(rollIndex)) {
+        frameScore = 10 + spareBonus(rollIndex);
+    }
+    else {
+        frameScore = rolls[rollIndex] + rolls[rollIndex + 1];
+    }
+
+    return frameScore;
+}
+
 bool BowlingCalculator::isStrike(int rollIndex) const {
     return rollIndex < currentRoll && rolls[rollIndex] == 10;
 }
