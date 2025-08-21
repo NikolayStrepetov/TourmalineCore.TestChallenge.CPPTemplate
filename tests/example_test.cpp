@@ -64,3 +64,11 @@ TEST_F(BowlingCalculatorTest, AllSpares)
     calculator.roll(5);
     EXPECT_EQ(150, calculator.totalScore());
 }
+
+TEST_F(BowlingCalculatorTest, CurrentFrame)
+{
+    calculator.roll(5);
+    calculator.roll(5);
+    calculator.roll(5);
+    EXPECT_EQ(2, calculator.getCurrentFrame());
+}
