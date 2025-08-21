@@ -88,7 +88,9 @@ TEST_F(BowlingCalculatorTest, RollsInFrame)
     calculator.roll(7);
     calculator.roll(3);
     EXPECT_EQ(std::vector<int>{10}, calculator.getRollsInFrame(1));
-    EXPECT_EQ(std::vector<int>{7, 3}, calculator.getRollsInFrame(2));
+    std::vector<int> testData = std::vector<int>{7, 3};
+    std::vector<int> testRolls = calculator.getRollsInFrame(2);
+    EXPECT_EQ(testData[0], testRolls[0]);
 }
 
 TEST_F(BowlingCalculatorTest, ExampleTest)
