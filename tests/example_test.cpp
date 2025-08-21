@@ -54,3 +54,13 @@ TEST_F(BowlingCalculatorTest, PerfectGame)
     }
     EXPECT_EQ(300, calculator.totalScore());
 }
+
+TEST_F(BowlingCalculatorTest, AllSpares)
+{
+    for (int i = 0; i < 10; i++) {
+        calculator.roll(5);
+        calculator.roll(5);
+    }
+    calculator.roll(5);
+    EXPECT_EQ(150, calculator.totalScore());
+}
