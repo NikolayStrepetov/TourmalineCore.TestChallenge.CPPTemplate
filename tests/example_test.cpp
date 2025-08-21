@@ -81,3 +81,47 @@ TEST_F(BowlingCalculatorTest, FrameScores)
     EXPECT_EQ(17, calculator.getFrameScore(1));
     EXPECT_EQ(7, calculator.getFrameScore(2));
 }
+
+TEST_F(BowlingCalculatorTest, ExampleTest)
+{
+    calculator.roll(10);
+    EXPECT_EQ(10, calculator.totalScore());
+
+    calculator.roll(7);
+    EXPECT_EQ(24, calculator.totalScore());
+    calculator.roll(3);
+    EXPECT_EQ(30, calculator.totalScore());
+
+    calculator.roll(7);
+    calculator.roll(2);
+
+    calculator.roll(9);
+    calculator.roll(1);
+
+    calculator.roll(10);
+
+    calculator.roll(10);
+
+    calculator.roll(10);
+
+    calculator.roll(2);
+    calculator.roll(3);
+
+    calculator.roll(6);
+    calculator.roll(4);
+
+    calculator.roll(7);
+    calculator.roll(3);
+    calculator.roll(3);
+    EXPECT_EQ(168, calculator.totalScore());
+    EXPECT_EQ(20, calculator.getFrameScore(1));
+    EXPECT_EQ(17, calculator.getFrameScore(2));
+    EXPECT_EQ(9, calculator.getFrameScore(3));
+    EXPECT_EQ(20, calculator.getFrameScore(4));
+    EXPECT_EQ(30, calculator.getFrameScore(5));
+    EXPECT_EQ(22, calculator.getFrameScore(6));
+    EXPECT_EQ(15, calculator.getFrameScore(7));
+    EXPECT_EQ(5, calculator.getFrameScore(8));
+    EXPECT_EQ(17, calculator.getFrameScore(9));
+    EXPECT_EQ(13, calculator.getFrameScore(10));
+}
