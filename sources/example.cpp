@@ -60,3 +60,14 @@ bool BowlingCalculator::isSpare(int rollIndex) const {
     return rollIndex + 1 < currentRoll &&
            rolls[rollIndex] + rolls[rollIndex + 1] == 10;
 }
+
+int BowlingCalculator::strikeBonus(int rollIndex) const {
+    if (rollIndex + 2 < currentRoll) {
+        return rolls[rollIndex + 1] + rolls[rollIndex + 2];
+    }
+    else if (rollIndex + 1 < currentRoll) {
+        return rolls[rollIndex + 1];
+    }
+
+    return 0;
+}
