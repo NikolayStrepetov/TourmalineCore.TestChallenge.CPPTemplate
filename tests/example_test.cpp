@@ -72,3 +72,12 @@ TEST_F(BowlingCalculatorTest, CurrentFrame)
     calculator.roll(5);
     EXPECT_EQ(2, calculator.getCurrentFrame());
 }
+
+TEST_F(BowlingCalculatorTest, FrameScores)
+{
+    calculator.roll(10);
+    calculator.roll(3);
+    calculator.roll(4);
+    EXPECT_EQ(17, calculator.getFrameScore(1));
+    EXPECT_EQ(7, calculator.getFrameScore(2));
+}
