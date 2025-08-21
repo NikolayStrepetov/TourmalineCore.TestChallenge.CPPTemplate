@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <vector>
 
 #include "example.h"
 
@@ -82,6 +83,37 @@ int BowlingCalculator::getFrameScore(int frame) const {
     }
 
     return frameScore;
+}
+
+std::vector<int> BowlingCalculator::getRollsInFrame(int frame) const {
+    if (frame < 1 || frame > 10) {
+        throw std::invalid_argument("Frame must be between 1 and 10");
+    }
+
+    int frameIndex = 0;
+    int rollIndex = 0;
+    int frameScore = 0;
+    std::vector<int> frameRolls;
+
+    while (frameIndex < frame -1) {
+        if (isStrike(rollIndex)) {
+            rollIndex ++;
+        }
+        else {
+            rollIndex += 2;
+        }
+        frameIndex ++;
+    }
+
+    if (isStrike(rollIndex)) {
+        frameRolls.push_back(rolls[rollIndex]);    
+    }
+    else {
+        frameRolls.push_back(rolls[rollIndex]);
+        frameRolls.push_back(rolls[rollIndex + 1]);
+    }
+
+    return frameRolls;
 }
 
 bool BowlingCalculator::isStrike(int rollIndex) const {
