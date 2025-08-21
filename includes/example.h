@@ -5,6 +5,7 @@ public:
     int totalScore() const;
     int getCurrentFrame() const;
     int getFrameScore(int frame) const;
+    std::vector<int> getRollsInFrame(int frame) const;
 
 private:
     int rolls[21];
