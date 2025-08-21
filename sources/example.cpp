@@ -55,3 +55,8 @@ int BowlingCalculator::getCurrentFrame() const {
 bool BowlingCalculator::isStrike(int rollIndex) const {
     return rollIndex < currentRoll && rolls[rollIndex] == 10;
 }
+
+bool BowlingCalculator::isSpare(int rollIndex) const {
+    return rollIndex + 1 < currentRoll &&
+           rolls[rollIndex] + rolls[rollIndex + 1] == 10;
+}
