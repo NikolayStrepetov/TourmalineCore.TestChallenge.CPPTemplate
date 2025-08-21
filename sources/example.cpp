@@ -71,3 +71,11 @@ int BowlingCalculator::strikeBonus(int rollIndex) const {
 
     return 0;
 }
+
+int BowlingCalculator::spareBonus(int rollIndex) const {
+    if (rollIndex + 2 < currentRoll) {
+        return rolls[rollIndex + 2];
+    }
+
+    return 0;
+}
