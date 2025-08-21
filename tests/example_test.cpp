@@ -46,3 +46,11 @@ TEST_F(BowlingCalculatorTest, OneStrike)
     }
     EXPECT_EQ(24, calculator.totalScore());
 }
+
+TEST_F(BowlingCalculatorTest, PerfectGame)
+{
+    for (int i = 0; i < 12; i++) {
+        calculator.roll(10);
+    }
+    EXPECT_EQ(300, calculator.totalScore());
+}
