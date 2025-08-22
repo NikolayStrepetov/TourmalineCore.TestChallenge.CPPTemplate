@@ -144,4 +144,5 @@ TEST_F(BowlingCalculatorTest, ExampleTest)
     EXPECT_EQ(5, calculator.getFrameScore(8));
     EXPECT_EQ(17, calculator.getFrameScore(9));
     EXPECT_EQ(13, calculator.getFrameScore(10));
+    EXPECT_TRUE(calculator.isGameOver());
 }
