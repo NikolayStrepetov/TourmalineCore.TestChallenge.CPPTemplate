@@ -13,7 +13,6 @@ public:
 private:
     int rolls[21];
     int currentRoll;
-    int rollsCount;
 
     bool isStrike(int rollIndex) const;
     bool isSpare(int rollIndex) const;

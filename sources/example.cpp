@@ -5,7 +5,7 @@
 #include "example.h"
 
 
-BowlingCalculator::BowlingCalculator() : currentRoll(0), rollsCount(0) {
+BowlingCalculator::BowlingCalculator() : currentRoll(0) {
     std::fill_n(rolls, 21, 0);
 }
 
