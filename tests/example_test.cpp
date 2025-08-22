@@ -93,6 +93,15 @@ TEST_F(BowlingCalculatorTest, RollsInFrame)
     EXPECT_EQ(testData[0], testRolls[0]);
 }
 
+TEST_F(BowlingCalculatorTest, GameOver)
+{
+    EXPECT_FALSE(calculator.isGameOver());
+    for (int i = 0; i < 20; i++) {
+        calculator.roll(0);
+    }
+    EXPECT_TRUE(calculator.isGameOver());
+}
+
 TEST_F(BowlingCalculatorTest, ExampleTest)
 {
     calculator.roll(10);
