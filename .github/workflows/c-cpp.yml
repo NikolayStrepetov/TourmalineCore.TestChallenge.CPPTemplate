@@ -27,4 +27,4 @@ jobs:
 
     - name: Run tests
       run: |
-        cd build && ./BowlingGameTests
+        cd build && ./tests/example_test
