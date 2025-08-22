@@ -8,6 +8,7 @@ public:
     int getCurrentFrame() const;
     int getFrameScore(int frame) const;
     std::vector<int> getRollsInFrame(int frame) const;
+    bool isGameOver() const;
 
 private:
     int rolls[21];
