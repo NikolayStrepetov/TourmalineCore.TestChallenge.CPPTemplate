@@ -5,11 +5,15 @@
 #include "example.h"
 
 
-BowlingCalculator::BowlingCalculator() : currentRoll(0) {
+BowlingCalculator::BowlingCalculator() : currentRoll(0), rollsCount(0) {
     std::fill_n(rolls, 21, 0);
 }
 
 void BowlingCalculator::roll(int pins) {
+    if (isGameOver()) {
+        throw std::runtime_error("The Game is already over!");
+    }
+
     rolls[currentRoll++] = pins;
 }
 
@@ -114,6 +118,47 @@ std::vector<int> BowlingCalculator::getRollsInFrame(int frame) const {
     }
 
     return frameRolls;
+}
+
+bool BowlingCalculator::isGameOver() const {
+    if (currentRoll < 12) return false;
+    
+    int frameIndex = 0;
+    int rollIndex = 0;
+    
+    while (frameIndex < 9 && rollIndex < currentRoll) {
+        if (rolls[rollIndex] == 10) {
+            frameIndex++;
+            rollIndex++;
+        }
+        else if (rollIndex + 1 < currentRoll) {
+            frameIndex++;
+            rollIndex += 2;
+        }
+        else {
+            break;
+        }
+    }
+    
+    if (frameIndex == 9) {
+        if (rollIndex >= currentRoll) {
+            return false;
+        }
+
+        if (rolls[rollIndex] == 10) {
+            return currentRoll >= rollIndex + 3;
+        } 
+        else if (rollIndex + 1 < currentRoll) {
+            if (rolls[rollIndex] + rolls[rollIndex + 1] == 10) {
+                return currentRoll >= rollIndex + 3;
+            }
+            else {
+                return currentRoll >= rollIndex + 2;
+            }
+        }
+    }
+    
+    return false;
 }
 
 bool BowlingCalculator::isStrike(int rollIndex) const {
